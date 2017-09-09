@@ -14,9 +14,9 @@
 #include <linux/kernel.h>
 #include <soc/qcom/scm.h>
 
-#if defined(CONFIG_MSM_XPU_ERR_FATAL)
+#ifdef CONFIG_MSM_XPU_ERR_FATAL
 #define ERR_FATAL_VAL 0x0
-#elif defined(CONFIG_MSM_XPU_ERR_NONFATAL)
+#else
 #define ERR_FATAL_VAL 0x1
 #endif
 
