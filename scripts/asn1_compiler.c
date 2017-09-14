@@ -515,9 +515,9 @@ static void tokenise(char *buffer, char *end)
 	}
 
 	nr_tokens = tix;
+#if 0
 	printf("Extracted %u tokens\n", nr_tokens);
 
-#if 0
 	{
 		int n;
 		for (n = 0; n < nr_tokens; n++)
@@ -748,8 +748,8 @@ static void build_type_list(void)
 
 	qsort(type_index, nr, sizeof(type_index[0]), type_index_compare);
 
-	printf("Extracted %u types\n", nr_types);
 #if 0
+	printf("Extracted %u types\n", nr_types);
 	for (n = 0; n < nr_types; n++) {
 		struct type *type = type_index[n];
 		printf("- %*.*s\n",
@@ -793,7 +793,7 @@ static void parse(void)
 
 	} while (type++, !(type->flags & TYPE_STOP_MARKER));
 
-	printf("Extracted %u actions\n", nr_actions);
+	//printf("Extracted %u actions\n", nr_actions);
 }
 
 static struct element *element_list;
@@ -1283,8 +1283,8 @@ static void render(FILE *out, FILE *hdr)
 		exit(1);
 	}
 
-	/* We do two passes - the first one calculates all the offsets */
-	printf("Pass 1\n");
+	/* We do two passes - the first one calculates all the offsets
+	printf("Pass 1\n"); */
 	nr_entries = 0;
 	root = &type_list[0];
 	render_element(NULL, root->element, NULL);
@@ -1294,8 +1294,8 @@ static void render(FILE *out, FILE *hdr)
 	for (e = element_list; e; e = e->list_next)
 		e->flags &= ~ELEMENT_RENDERED;
 
-	/* And then we actually render */
-	printf("Pass 2\n");
+	/* And then we actually render
+	printf("Pass 2\n"); */
 	fprintf(out, "\n");
 	fprintf(out, "static const unsigned char %s_machine[] = {\n",
 		grammar_name);
