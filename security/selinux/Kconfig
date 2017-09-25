@@ -8,6 +8,17 @@ config SECURITY_SELINUX
 	  You will also need a policy configuration and a labeled filesystem.
 	  If you are unsure how to answer this question, answer N.
 
+config SECURITY_SELINUX_ALWAYS_ENFORCE
+	bool "NSA SELinux always enforce"
+	depends on SECURITY_SELINUX
+	help
+	  This option forces SELinux to be set to enforcing regardless of any
+	  of user's value.
+
+	  If unsure, say N.
+
+if !SECURITY_SELINUX_ALWAYS_ENFORCE
+
 config SECURITY_SELINUX_BOOTPARAM
 	bool "NSA SELinux boot parameter"
 	depends on SECURITY_SELINUX
@@ -51,6 +62,8 @@ config SECURITY_SELINUX_DISABLE
 	  to employ.
 
 	  If you are unsure how to answer this question, answer N.
+
+endif
 
 config SECURITY_SELINUX_DEVELOP
 	bool "NSA SELinux Development Support"

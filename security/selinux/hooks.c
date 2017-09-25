@@ -106,9 +106,14 @@ int selinux_enforcing;
 
 static int __init enforcing_setup(char *str)
 {
+#ifdef CONFIG_SECURITY_SELINUX_ALWAYS_ENFORCE
+	// SELinux is always enforcing during init
+	selinux_enforcing = 1;
+#else
 	unsigned long enforcing;
 	if (!kstrtoul(str, 0, &enforcing))
 		selinux_enforcing = enforcing ? 1 : 0;
+#endif
 	return 1;
 }
 __setup("enforcing=", enforcing_setup);

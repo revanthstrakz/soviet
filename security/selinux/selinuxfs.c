@@ -169,6 +169,11 @@ static ssize_t sel_write_enforce(struct file *file, const char __user *buf,
 	if (sscanf(page, "%d", &new_value) != 1)
 		goto out;
 
+#ifdef CONFIG_SECURITY_SELINUX_ALWAYS_ENFORCE
+	// SELinux is always enforcing
+	new_value = 1;
+#endif
+
 	if (new_value != selinux_enforcing) {
 		length = task_has_security(current, SECURITY__SETENFORCE);
 		if (length)
