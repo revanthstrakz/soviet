@@ -3,8 +3,8 @@ export CROSS_COMPILE="/home/rahif/android/kernels/toolchains/aarch64-linux-andro
 
 export ARCH=arm64
 
-make clean O=out/
-make mrproper O=out/
+#make clean O=out/
+#make mrproper O=out/
 
 make mido_defconfig O=out/
 
