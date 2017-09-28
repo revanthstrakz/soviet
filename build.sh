@@ -1,10 +1,10 @@
 #!/bin/sh
-export CROSS_COMPILE="/home/rahif/android/kernels/toolchains/aarch64-linux-android-4.9/bin/aarch64-linux-android-"
+export CROSS_COMPILE="/home/rahif/android/kernels/toolchains/lin-7/bin/aarch64-linaro-linux-android-"
 
 export ARCH=arm64
 
-#make clean O=out/
-#make mrproper O=out/
+make clean O=out/
+make mrproper O=out/
 
 make mido_defconfig O=out/
 
