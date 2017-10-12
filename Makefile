@@ -1,6 +1,6 @@
 VERSION = 3
 PATCHLEVEL = 18
-SUBLEVEL = 74
+SUBLEVEL = 75
 EXTRAVERSION = -ソウルテイカー
 NAME = Shuffling Zombie Juror
 
