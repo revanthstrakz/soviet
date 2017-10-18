@@ -1,5 +1,5 @@
 #!/bin/sh
-export CROSS_COMPILE="/home/rahif/android/kernels/toolchains/lin-7/bin/aarch64-linaro-linux-android-"
+export CROSS_COMPILE="/home/adesh/Adesh/kernel/gcc-prebuilts/bin/aarch64-linaro-linux-android-"
 
 export ARCH=arm64
 
